@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link id="favicon" rel="icon" href="Classroom.png" type="image/x-icon">
+    <link rel="stylesheet" href="style2.css">
+    <title>Classes</title>
+</head>
+<body>
+
+    <img src="icont.png" alt="Crescent with Z letter icon" class="centericonplace">
+
+    <div class="gameoptions">
+        <button class="gamepag" onclick="games()">Open games normally</button>
+        <button class="openab" onclick="gamesab()">See games in new tab</button>
+    </div>
+
+    <script>
+         function openWindow(url, title, favicon) {
+      var win = window.open();
+
+      // Check if the URL is about:blank
+      if (url.toLowerCase() === 'about:blank') {
+        win.document.title = title;
+        var link = win.document.createElement('link');
+        link.rel = 'icon';
+        link.href = favicon;
+        win.document.head.appendChild(link);
+        return;
+      }
+
+      var iframe = win.document.createElement('iframe');
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      win.document.body.style.margin = '0';
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+      win.document.title = title;
+
+      // Set favicon for the opened window
+      var link = win.document.createElement('link');
+      link.rel = 'icon';
+      link.href = favicon;
+      win.document.head.appendChild(link);
+    }
+
+    function games() {
+        window.location.href = "https://teehee9281.github.io/fullscreengames"
+    }
+    
+    function gamesab() {
+        
+        openWindow("https://teehee9281.github.io/fullscreengames", 'Google Docs', 'docs.ico')
+    }
+    </script>
+
+</body>
+</html>

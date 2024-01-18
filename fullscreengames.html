@@ -1,0 +1,169 @@
+<html>
+<head>
+  <link id="favicon" rel="icon" href="Classroom.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <title>Classes</title>
+</head>
+<body>
+
+  <select id="dropdown" onchange="changeFaviconAndTitle()">
+    <option value="placeholder">Default</option>
+    <option value="Google-Docs">Google Docs</option>
+    <option value="Google-Classroom">Google Classroom</option>
+    <option value="Clever">Clever</option>
+  </select>
+
+  <label for="faviconDropdown">Select Favicon:</label>
+  <select id="faviconDropdown" onchange="changeFavicon()">
+      <option value="docs.ico">Google Docs</option>
+      <option value="clever.ico">Clever</option>
+      <option value="crescent.ico">Website [no hidden]</option>
+</select>
+
+  <button onclick="openFnaf1()">Open Five Nights At Freddy's 1</button>
+  <button onclick="openFnaf2()">Open Five Nights At Freddy's 2</button>
+  <button onclick="openFnaf3()">Open Five Nights At Freddy's 3</button>
+  <button onclick="openFnaf4()">Open Five Nights At Freddy's 4</button>
+  <button onclick="openMonkeyMart()">Open Monkey Mart</button>
+  <button onclick="openCookie()">Open Cookie Clicker</button>
+  <button onclick="openRetroBowl()">Open Retro Bowl</button>
+  <button onclick="openSuperHot()">Open Super Hot</button>
+  <button onclick="openSubwaySurfers()">Open Subway Surfers</button>
+  <button onclick="openSlope()">Open Slope</button>
+  <button onclick="openMarioVer()">Open Mario vs Luigi: Versus</button>
+  <button onclick="openBacon()">Open Bacon May Die</button>
+  <button onclick="openRoblox()">Open Roblox</button>
+  <button onclick="openMotoX3M()">Open MotoX3M</button>
+  <button onclick="openFnW()">Open Fireboy & WaterGirl</button>
+
+  <script>
+   
+    function openWindow(url, title, favicon) {
+      var win = window.open();
+
+      // Check if the URL is about:blank
+      if (url.toLowerCase() === 'about:blank') {
+        win.document.title = title;
+        var link = win.document.createElement('link');
+        link.rel = 'icon';
+        link.href = favicon;
+        win.document.head.appendChild(link);
+        return;
+      }
+
+      var iframe = win.document.createElement('iframe');
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      win.document.body.style.margin = '0';
+      iframe.src = url;
+      win.document.body.appendChild(iframe);
+      win.document.title = title;
+
+      // Set favicon for the opened window
+      var link = win.document.createElement('link');
+      link.rel = 'icon';
+      link.href = favicon;
+      win.document.head.appendChild(link);
+    }
+
+
+
+    function openFnaf1() {
+      openWindow("https://ubg98.github.io/FNAF/", 'Google Docs', 'docs.ico');
+    }
+
+    function openFnaf2() {
+      openWindow("https://ubg98.github.io/FNAF2/", 'Google Docs', 'docs.ico');
+    }
+
+    function openFnaf3() {
+      openWindow("https://ubg98.github.io/FNAF3/", 'Google Docs', 'docs.ico');
+    }
+
+    function openFnaf4() {
+      openWindow("https://ubg98.github.io/FNAF4/", 'Google Docs',  'docs.ico');
+    }
+
+    function openMario() {
+      openWindow("https://mathrules.dev/swf?notebook=supermario", 'Google Docs', 'docs.ico');
+    }
+    
+    function openMonkeyMart() {
+      openWindow("https://monkey-mart.io/iframe/index.html", 'Google Docs', 'docs.ico');
+    }
+
+    function openCookie() {
+      openWindow("https://orteil.dashnet.org/cookieclicker/", 'Google Docs', 'docs.ico');
+    }
+
+    function openRetroBowl() {
+      openWindow("https://game316009.konggames.com/gamez/0031/6009/live/index.html", 'Google Docs', 'docs.ico');
+    }
+
+    function openSuperHot() {
+      alert("When clicked, click the two arrows going away from eachother to play fullscreen.")
+      openWindow("https://f3.silvergames.com/html5/super-hot/", 'Google Docs', 'docs.ico'); 
+     
+    }
+
+      function openSubwaySurfers() {
+      openWindow("https://subwaysurfers.app/iframe/", 'Google Docs', 'docs.ico');    }
+  
+    function openSlope() {
+      openWindow("https://kdata1.com/2020/05/slope/", 'Google Docs', 'docs.ico'); }
+
+  
+
+    function openBacon() {
+      openWindow("https://easytutoring.app/gamefiles/baconmaydie/", 'Google Docs', 'docs.ico');
+    }
+
+    
+    function openMotoX3M() {
+      openWindow("https://html5.gamedistribution.com/5b0abd4c0faa4f5eb190a9a16d5a1b4c/?gdpr-targeting=1&gdpr-tracking=1&gdpr-third-party=1&euConsent=undefined&gd_sdk_referrer_url=https%3A%2F%2Fwww.funnygames.org%2Fgame%2Fmoto_x3m.html", 'Google Docs', 'docs.ico');
+    }
+
+    function openFnW() {
+      openWindow("https://easytutoring.app/gamefiles/fireboywatergirl/", 'Google Docs', 'docs.ico');
+    }
+
+    function gmailTitle() {
+
+      
+    }
+    
+
+    
+
+    function changeFaviconAndTitle() {
+      var dropdown = document.getElementById("dropdown");
+      var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+      var favicon = document.getElementById("favicon");
+      var title = document.getElementsByTagName("title")[0];
+
+      switch (selectedValue) {
+        case "Google-Docs":
+          favicon.href = "docs.ico";
+          title.innerText = "Google Docs";
+          break;
+        case "Google-Classroom":
+          favicon.href = "Classroom.png";
+          title.innerText = "Classes";
+          break;
+        default:
+          favicon.href = "crescent.ico";
+          title.innerText = "Fullscreens";
+          break;
+
+        case "Clever":
+          favicon.href = "clever.ico";
+          title.innerText = "Clever";
+      }
+    }
+
+    
+  
+</script>
+</body>
+</html>
